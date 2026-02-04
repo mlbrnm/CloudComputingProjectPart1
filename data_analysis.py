@@ -70,3 +70,15 @@ plt.xlabel('Diet Type')
 plt.ylabel('Macronutrient')
 plt.tight_layout()
 plt.show()
+
+# Chart 5: Scatter plot for top protein-rich recipes across cuisines
+plt.figure(figsize=(12, 8))
+sns.scatterplot(data=top_protein, x='Cuisine_type', y='Protein(g)', 
+                hue='Diet_type', size='Protein(g)', sizes=(50, 400), alpha=0.7)
+plt.title('Top 5 Protein-Rich Recipes Distribution Across Cuisines')
+plt.xlabel('Cuisine Type')
+plt.ylabel('Protein (g)')
+plt.xticks(rotation=45, ha='right')
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+plt.show()
