@@ -18,6 +18,15 @@ top_protein = df.sort_values('Protein(g)', ascending=False).groupby('Diet_type')
 df['Protein_to_Carbs_ratio'] = df['Protein(g)'] / df['Carbs(g)']
 df['Carbs_to_Fat_ratio'] = df['Carbs(g)'] / df['Fat(g)']
 
+# find the diet type with the highest protein content
+highest_protein_diet = df.groupby('Diet_type')['Protein(g)'].sum().idxmax()
+print(f"\nDiet type with highest total protein content: {highest_protein_diet}")
+
+# identify the most common cuisines for each diet type
+most_common_cuisines = df.groupby('Diet_type')['Cuisine_type'].agg(lambda x: x.mode()[0] if not x.mode().empty else 'N/A')
+print("\nMost common cuisine for each diet type:")
+print(most_common_cuisines)
+
 
 # Bar chart for average macronutrients
 sns.barplot(x=avg_macros.index, y=avg_macros['Protein(g)'])
