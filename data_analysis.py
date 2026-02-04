@@ -10,8 +10,8 @@ warnings.filterwarnings('ignore')
 df = pd.read_csv('All_Diets.csv')
 print(f"Dataset loaded. Total recipes: {len(df)}")
 
-# handle missing data (fill missing values with mean)
-df.fillna(df.mean(), inplace=True)
+# handle missing data (fill missing values with mean for numeric columns only)
+df.fillna(df.mean(numeric_only=True), inplace=True)
 print("Missing values handled")
 
 # ===== DATA ANALYSIS SECTION =====
@@ -39,6 +39,9 @@ most_common_cuisines = df.groupby('Diet_type')['Cuisine_type'].agg(lambda x: x.m
 print("\nMost common cuisine for each diet type:")
 print(most_common_cuisines)
 
+print("\n" + "="*50)
+print("GENERATING VISUALIZATIONS...")
+print("="*50 + "\n")
 
 # Chart 1: Bar chart for average protein
 plt.figure(figsize=(10, 6))
@@ -90,3 +93,7 @@ plt.xticks(rotation=45, ha='right')
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.show()
+
+print("\n" + "="*50)
+print("Completed.")
+print("="*50)
