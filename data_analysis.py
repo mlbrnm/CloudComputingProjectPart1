@@ -1,12 +1,20 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import warnings
+
+# suppress warnings for cleaner output
+warnings.filterwarnings('ignore')
 
 # load the dataset
 df = pd.read_csv('All_Diets.csv')
+print(f"Dataset loaded. Total recipes: {len(df)}")
 
 # handle missing data (fill missing values with mean)
 df.fillna(df.mean(), inplace=True)
+print("Missing values handled")
+
+# ===== DATA ANALYSIS SECTION =====
 
 # calculate the average macronurtrient content for each diet type
 avg_macros = df.groupby('Diet_type')[['Protein(g)', 'Carbs(g)', 'Fat(g)']].mean()
