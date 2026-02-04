@@ -10,9 +10,13 @@ df.fillna(df.mean(), inplace=True)
 
 # calculate the average macronurtrient content for each diet type
 avg_macros = df.groupby('Diet_type')[['Protein(g)', 'Carbs(g)', 'Fat(g)']].mean()
+print("\nAverage macronutrient content for each diet type:")
+print(avg_macros)
 
 # find the top 5 protein-rich recipes for each diet type
 top_protein = df.sort_values('Protein(g)', ascending=False).groupby('Diet_type').head(5)
+print("\nTop 5 protein-rich recipes per diet type:")
+print(top_protein[['Diet_type', 'Recipe_name', 'Protein(g)']])
 
 # add new metrics (protein-to-carbs ratio and carbs-to-fat ratio)
 df['Protein_to_Carbs_ratio'] = df['Protein(g)'] / df['Carbs(g)']
