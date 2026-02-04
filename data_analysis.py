@@ -32,8 +32,32 @@ print("\nMost common cuisine for each diet type:")
 print(most_common_cuisines)
 
 
-# Bar chart for average macronutrients
+# Chart 1: Bar chart for average protein
+plt.figure(figsize=(10, 6))
 sns.barplot(x=avg_macros.index, y=avg_macros['Protein(g)'])
 plt.title('Average Protein by Diet Type')
+plt.xlabel('Diet Type')
 plt.ylabel('Average Protein (g)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Chart 2: Bar chart for average carbs
+plt.figure(figsize=(10, 6))
+sns.barplot(x=avg_macros.index, y=avg_macros['Carbs(g)'])
+plt.title('Average Carbs by Diet Type')
+plt.xlabel('Diet Type')
+plt.ylabel('Average Carbs (g)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Chart 3: Bar chart for average fat
+plt.figure(figsize=(10, 6))
+sns.barplot(x=avg_macros.index, y=avg_macros['Fat(g)'])
+plt.title('Average Fat by Diet Type')
+plt.xlabel('Diet Type')
+plt.ylabel('Average Fat (g)')
+plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
