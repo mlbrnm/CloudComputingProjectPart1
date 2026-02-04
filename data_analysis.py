@@ -61,3 +61,12 @@ plt.ylabel('Average Fat (g)')
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
+
+# Chart 4: Heatmap showing relationship between macronutrients and diet types
+plt.figure(figsize=(10, 8))
+sns.heatmap(avg_macros.T, annot=True, fmt='.2f', cmap='YlOrRd', cbar_kws={'label': 'Grams'})
+plt.title('Heatmap of Average Macronutrients by Diet Type')
+plt.xlabel('Diet Type')
+plt.ylabel('Macronutrient')
+plt.tight_layout()
+plt.show()
